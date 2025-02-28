@@ -25,8 +25,7 @@ function ApplicantsTable() {
         `${Application_API_END_POINT}/status/${id}/update`,
         { status }
       );
-      // console.log(res);
-      // console.log("Applicants Data:", applicants);
+      
 
       if (res.data.success) {
         toast.success(res.data.message);

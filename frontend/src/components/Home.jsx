@@ -6,9 +6,6 @@ import { useGetAllJobs } from '../hooks/useGetAllJobs';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// import Login from './Login';
-// import SignUp from './SignUp';
-
 export default function Home() {
 useGetAllJobs();
 const {user} = useSelector(store=>store.auth);
@@ -23,9 +20,7 @@ useEffect(()=>{
       <HeroSection></HeroSection>
       <CategoryCarousel/>
       <LatestJob/>
-    {/* <Navbar/> */}
-    {/* <Login></Login> */}
-    {/* <SignUp></SignUp> */}
+
     </div>
   )
 }

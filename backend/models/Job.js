@@ -45,13 +45,7 @@ const jobSchema = new mongoose.Schema({
         ref: "User",
     },
     
-    // created_by: [
-    //     {
-    //         type:mongoose.Schema.Types.ObjectId,
-    //         required: true,
-    //         ref: "User",
-    //     }
-    // ],
+    
     applications: [
         {
             type:mongoose.Schema.Types.ObjectId,

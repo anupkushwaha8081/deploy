@@ -21,11 +21,7 @@ const companySchema = new mongoose.Schema({
                 trim: true,
         },
         logo: [
-                // {
-                //         type: mongoose.Schema.Types.ObjectId,
-                //         // required: true,
-                //         ref: "User",
-                // }
+                
                 {
                         type: String,
                         // required: true,

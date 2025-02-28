@@ -45,7 +45,6 @@ exports.postJobs = async (req, res) => {
 exports.getAllJobs = async (req, res) => {
     try {
         const keyword = req.query.keyword?.trim() || "";
-        // const keyword = req.query.keyword?.trim() || "";
         console.log("Keyword:", keyword);
 
         const query = {
@@ -58,13 +57,6 @@ exports.getAllJobs = async (req, res) => {
         const jobs = await Job.find(query).populate({
             path:"company"
            }).sort({createdAt:-1})
-
-        // if(!jobs){
-        //     return res.status(404).json({
-        //         success:false,
-        //         message:"no any  job found",
-        //     }) 
-        // }
 
         if (jobs.length === 0) {
             return res.status(404).json({
@@ -89,38 +81,6 @@ exports.getAllJobs = async (req, res) => {
         console.error(err);
     }
 }
-
-// const Job = require("../models/Job"); // Adjust the path based on your structure
-
-// exports.getJobs = async (req, res) => {
-//     try {
-//         const userId = req._id;
-//         console.log("userId", userId);
-//         const jobs = await Job.find({ userId });
-//         console.log(jobs)
-
-//         if (!jobs || jobs.length === 0) {
-//             return res.status(404).json({
-//                 success: false,
-//                 message: "No jobs found"
-//             });
-//         }
-
-//         return res.status(200).json({
-//             success: true,
-//             jobs,
-//             message: "Here is the job list"
-//         });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(400).json({
-//             success: false,
-//             message: "Error fetching jobs"
-//         });
-//     }
-// };
-
-
 exports.getJobs = async (req, res) => {
     try {
         const userId = req._id;
@@ -151,42 +111,6 @@ exports.getJobs = async (req, res) => {
 };
 
 
-
-// exports.getAllJobs = async (req, res) => {
-//     try {
-//         const keyword = req.query.keyword?.trim() || "";
-//         console.log("Keyword:", keyword);
-
-//         const query = {
-//             $or: [
-//                 { title: { $regex: keyword, $options: "i" } },
-//                 { description: { $regex: keyword, $options: "i" } }
-//             ]
-//         };
-
-//         const jobs = await Job.find(query)
-//             .populate({ path: "company", model: "Company" })
-//             .sort({ createdAt: -1 }); // Use createdAt for sorting
-
-//         if (jobs.length === 0) {
-//             return res.status(404).json({
-//                 success: false,
-//                 message: "No jobs found",
-//             });
-//         }
-
-//         return res.status(200).json({
-//             success: true,
-//             jobs,
-//         });
-//     } catch (err) {
-//         console.error("Error in getAllJobs:", err.message);
-//         res.status(400).json({
-//             success: false,
-//             message: "Error fetching jobs",
-//         });
-//     }
-// };
 
 
 

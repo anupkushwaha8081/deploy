@@ -1,36 +1,4 @@
-// import React from 'react'
-// import { Button } from './ui/button'
-// import { Search } from 'lucide-react'
 
-// const HeroSection = () => {
-//   return (
-   
-//     <div className='text-center'>
-//         <div className="flex flex-col gap-5 my-10">
-//             <span className='font-medium bg-gray-200 rounded-lg text-red-500 px-4 py-2 mx-auto'>
-//                 No. 1 Job Hunt Website
-//             </span>
-//             <h1 className="text-5xl font-bold ">
-//                 Search, Apply & <br/> Get Your 
-//                 <span className='text-purple-600'>
-//                     Dream Jobs
-//                 </span>
-//             </h1>
-//             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, earum. </p>
-
-//         </div>
-//         <div className="flex items-center shadow-lg w-[40%] rounded-full gap-4 border border-gray-100 mx-auto">
-//             <input type="text" placeholder='  Find your dream  job ' className=' outline-none border-none w-full' />
-//             <Button className='rounded-r-full bg-purple-600'>
-//                 <Search/>
-//             </Button>
-//         </div>
-
-//     </div>
-//   )
-// }
-
-// export default HeroSection
 
 import React from 'react';
 import { Button } from './ui/button';

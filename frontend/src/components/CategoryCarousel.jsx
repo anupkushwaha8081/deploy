@@ -1,47 +1,4 @@
-// import React from "react";
-// import { Button } from "./ui/button";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel";
 
-// const CategoryCarousel = () => {
-//   const category = [
-//     "Frontend development",
-//     "backend development",
-//     "Data Science",
-//     "Graphic Designer",
-//     "FullStack developer",
-//   ];
-//   return (
-//     <div>
-//       <Carousel className="w-full max-w-xl mx-auto my-20">
-//         <CarouselContent>
-//           {category.map((cat, index) => {
-//             return (
-//                 <CarouselItem
-//                 className="basis-1/2 flex justify-center" // Ensures two categories are shown per row
-//                 key={index}
-//               >
-//                 <Button variant="outline" className="rounded-full">
-//                   {cat}
-//                 </Button>
-                
-//               </CarouselItem>
-//             );
-//           })}
-//         </CarouselContent>
-//         <CarouselPrevious className="bg-gray-200 " />
-//         <CarouselNext />
-//       </Carousel>
-//     </div>
-//   );
-// };
-
-// export default CategoryCarousel;
 import React from "react";
 import { Button } from "./ui/button";
 import {

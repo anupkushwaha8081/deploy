@@ -43,32 +43,6 @@ export const CompanyCreate = () => {
       console.log(" i am ",error);
     }
   };
-  // return (
-  //   <div className="max-w-5xl mx-auto">
-  //     <div className="my-10">
-  //       <h1 className="font-bold text-2xl"> Enter your Company</h1>
-  //       <p className="text-gray-500">
-  //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
-  //         ex?
-  //       </p>
-  //     </div>
-  //     <Label> Company name</Label>
-  //     <Input
-  //       type="text"
-  //       className="my-2"
-  //       onChange={(e) => setCompanyName(e.target.value)}
-  //       placeholder="Enter company name"
-  //     ></Input>
-  //     <div className="flex items-center gap-2 my-10">
-  //       <Button variant="outline" onClick={() => navigate("/admin/companies")}>
-  //         Cancel
-  //       </Button>
-  //       <Button onClick={registeredNewCompany}>Continue</Button>
-  //     </div>
-  //   </div>
-  // );
-
- 
 
   return (
     <div className="max-w-5xl mx-auto px-6 md:px-12"> {/* Increased padding */}
