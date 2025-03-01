@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const cloudinary = require("../config/cloudinary")
-const File = require("../models/User")
+// const File = require("../models/User")
 const { isFileTypeSupported, uploadFileToCloudinary } = require('../utility/utils');
 
 exports.register = async (req, res) => {
