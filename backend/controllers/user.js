@@ -2,7 +2,6 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const getDataUri = require("../config/datauri");
 const cloudinary = require("../config/cloudinary")
 const File = require("../models/User")
 const { isFileTypeSupported, uploadFileToCloudinary } = require('../utility/utils');
