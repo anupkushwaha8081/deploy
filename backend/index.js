@@ -1,140 +1,66 @@
-// const express = require("express");
-// const app = express();
-
-// app.use(express.json())
-
-// const fileUpload = require("express-fileupload");
-// app.use(fileUpload({
-//   useTempFiles: true,
-//   tempFileDir: "/tmp/",
-//   // createParentPath: true,
-// }));
-
-
-// const dotenv = require("dotenv")
-// dotenv.config();
-
-// const cors = require('cors');
-// app.use(cors({
-//   origin: 'http://localhost:5173', // Allow your frontend to make requests
-//   methods: ['GET', 'POST',"PUT",], // Allow specific methods
-//   credentials: true, // Allow cookies if needed
-// }));
-
-
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
-
-
-
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-
-// // Connect to the database
-// const db = require("./config/database");
-// db.connect();
-
-// //connect to path
-// const path = require('path')
-// const _dirname = path.resolve();
-
-// // cloud se connect kro 
-// const cloudinary = require("./config/cloudinary");
-// cloudinary.cloudinaryConnect();
-
-
-// const path = require("path");
-// const _dirname = path.resolve();
-
-
-// // Link to user routes (you can uncomment this once the routes are set up)
-// const userRoutes = require("./routes/userRoutes");
-// app.use("/api/v1", userRoutes);
-
-// // Link to company routes (you can uncomment this once the routes are set up)
-// const companyRoutes = require("./routes/companyRoutes");
-// app.use("/api/v1/company", companyRoutes);
-
-// app.use(express.static(path.join(_dirname,"/frontend/dist")));
-//  app.get("*",(_,res)=>{
-//     res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"));
-//  })
-
-
-
-// // Set up the port from environment variable or default to 7000
-// const PORT = process.env.PORT || 7000;
-
-
-// // Start the server
-// app.listen(PORT, () => {
-//   console.log(`App is listening on port ${PORT}`);
-// });
-
-
-
-
-
-
-
-
 const express = require("express");
 const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-const fileUpload = require("express-fileupload");
-app.use(fileUpload({
-  useTempFiles: true,
-  tempFileDir: "/tmp/",
-}));
-
 const dotenv = require("dotenv");
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
+const path = require("path");
+
+// Load environment variables
 dotenv.config();
 
-const cors = require('cors');
-app.use(cors({
-  // origin: 'http://localhost:5173',
-  origin: 'https://my-deploy-git-main-anupkushwaha8081s-projects.vercel.app/',
-  methods: ['GET', 'POST', 'PUT'],
-  credentials: true,
-}));
-
-const cookieParser = require("cookie-parser");
+// Use middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Connect to the database
+// Setup file upload
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+    // createParentPath: true,
+  })
+);
+
+// Setup CORS with .env variable
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL, // Example: http://localhost:5173
+    methods: ["GET", "POST", "PUT"],
+    credentials: true,
+  })
+);
+
+// Connect to database
 const db = require("./config/database");
 db.connect();
 
-// Cloudinary connection
+// Connect to Cloudinary
 const cloudinary = require("./config/cloudinary");
 cloudinary.cloudinaryConnect();
 
-// Set up path for serving frontend files
-const path = require('path');
-const _dirname = path.resolve();
-
-app.use(express.static(path.join(_dirname, "/frontend/dist")));
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
-});
-
-// Link to user routes
+// Routes
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/v1", userRoutes);
 
-// Link to company routes
 const companyRoutes = require("./routes/companyRoutes");
 app.use("/api/v1/company", companyRoutes);
 
-// Set up the port
-const PORT = process.env.PORT || 7000;
+// Optional: Serve frontend in production
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "frontend/dist")));
+// app.get("*", (_, res) => {
+//   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+// });
 
-// Start the server
+// Health check route (optional for testing backend)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+// Start server
+const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
 });
