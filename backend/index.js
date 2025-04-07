@@ -97,7 +97,8 @@ dotenv.config();
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'http://localhost:5173',
+  // origin: 'http://localhost:5173',
+  origin: 'https://my-deploy-git-main-anupkushwaha8081s-projects.vercel.app/',
   methods: ['GET', 'POST', 'PUT'],
   credentials: true,
 }));
